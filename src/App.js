@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbartop from "./Components/Navbartop";
+import Datacontext from "./Context/DataContext";
+import Bargraph from "./Components/Bargraph";
+import Piechart from "./Components/Piechart";
+import Linegraph from "./Components/Linegraph";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Datacontext>
+        <Navbartop />
+
+        <div className="container border-solid my-2 py-5">
+          <Linegraph />
+        </div>
+
+        <div className="border-solid border-2 container float-root flex flex-row  mx-l m-px p-[5px]  w-sm">
+          <div
+            className=" flex border mx-1 max-w-full max-h-screen"
+            style={{ width: "800px", height: "300px" }}
+          >
+            <Bargraph className="" />
+          </div>
+
+          <div className="container border">
+            <Piechart />
+          </div>
+        </div>
+      </Datacontext>
+    </>
   );
 }
 
